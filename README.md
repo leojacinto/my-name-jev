@@ -2,7 +2,7 @@
 
 TypeScript source for the ServiceNow **Generative AI Custom LLM Transformer** scripts that bridge [Jev](https://typesafe.ai) (TypeSafe AI's System One model) into ServiceNow's Generative AI Controller, since Jev returns typed/calibrated-probability answers rather than free text.
 
-Deployed on `mememachine` in scope `x_snc_jev` as the "Jev Decision Check" AI Skill Kit skill, provider = Custom LLM Provider.
+Deployed on a ServiceNow dev instance in scope `x_snc_jev` as the "Jev Decision Check" AI Skill Kit skill, provider = Custom LLM Provider.
 
 ## Layout
 
