@@ -39,6 +39,9 @@ Credentials are read from env vars only — nothing is stored in this repo.
 
 ## What's on the instance
 
-- AI Skill Kit skill "Jev Decision Check" — published, activated, provider = Custom LLM Provider. Still on a placeholder API key; swap in a real one (from `console.typesafe.ai`) in the API Key Credential record before it can make live calls.
-- AI Agent Studio agent "AI Asset Maintenance Advisor (Jev)" — has an ACL, two tools (the Jev skill, and a Knowledge Graph lookup scoped to the platform Enterprise Graph).
-- OneExtend capability "AI Asset Maintenance Advisor (Jev)" (script-include-backed, `JevAssetMaintenanceBridgeSNC`) so it's discoverable in Assistant Designer / promoted to Employee Slate — calls the Jev skill directly rather than the agent, since agent invocation (`startAiAgentConversation`) is async/conversational and this needs a synchronous answer.
+- AI Agent Studio agent "AI Asset Maintenance Advisor using Jev" — has an ACL, two tools: "Jev Decision Check Skill" and "AICT Knowledge Graph Lookup" (scoped to the `AICT KG Data Agent` tag).
+- AI Skill Kit skill "Jev Decision Check" — published, activated, provider = Custom LLM Provider ("Jev Connection" / model `jev-latest`).
+- The Custom LLM Provider's connection currently points at OpenRouter (`openrouter.ai/api/v1/chat/completions`, model `openai/gpt-4o-mini`), not TypeSafe's own `api.typesafe.ai` endpoint — the real TypeSafe key was never obtained, so the request/response transformers were rewritten to speak OpenRouter's chat-completions format and prompt the model to return the same `{answer, probability}` shape the agent instructions expect.
+- Auth for that connection uses a `sys_generative_ai_custom_header_api_key_credentials` record (header `Authorization`, value `Bearer <key>`), not the generic `api_key_credentials` class — the generic class falls back to HTTP Basic Auth for this flow regardless of its header-name field, which OpenRouter rejects.
+- To point this back at real TypeSafe/Jev instead of OpenRouter: change the connection's URL back to `https://api.typesafe.ai/v1/systemone`, restore the original request/response transformer bodies (the `{state, questions}` / `{answers}` shape — see git history), and put a real TypeSafe key in the credential.
+- `fluent-app/metadata/update/sys_generative_ai_custom_header_api_key_credentials_*.xml` ships with a placeholder value in `api_key` — paste the real key in after installing, never commit it.

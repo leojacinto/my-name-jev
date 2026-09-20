@@ -22,7 +22,7 @@ JevAssetMaintenanceBridgeSNC.prototype = {
 
         try {
             var promptData = {
-                prompt: "TYPE:noul\nINSTRUCTIONS:" + question + "\nSTATE:" + question
+                prompt: "TYPE:boolean\nINSTRUCTIONS:" + question + "\nSTATE:" + question
             };
 
             var request = {

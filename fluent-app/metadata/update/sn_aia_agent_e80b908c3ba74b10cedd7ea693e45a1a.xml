@@ -2,29 +2,29 @@
     <sn_aia_agent action="INSERT_OR_UPDATE">
         <advanced_mode>false</advanced_mode>
         <agent_type>internal</agent_type>
-        <applicability_script><![CDATA[/** 
- * Function to process inputs related to ServiceNow change request operations 
- * 
- * @param {Object} inputs - The input parameters object 
- * @param {string} inputs.objective - The purpose or goal of the operation 
- * @param {string} inputs.execution_plan_id - Unique identifier for the execution plan 
- * @param {Object} inputs.context - Context information about the ServiceNow change request 
- * @param {string} inputs.context.url - The URL of the change request in Service Operations Workspace 
- * @param {string} inputs.context.table - The ServiceNow table name (e.g., 'change_request') 
- * @param {string} inputs.context.record_sys_id - The sys ID of the record 
- * @param {string} inputs.context.route - The route type (e.g., 'record') 
- * @param {string} inputs.context.additional_context - Additional contextual information in JSON format 
- * @param {string} inputs.context.experience - The UI experience name (e.g., 'Service Operations Workspace') 
- * @param {string} inputs.context.number - The request number 
- * @param {string} inputs.context.portal - The portal ID 
- * @param {string} inputs.context.device_type - The device type from which the experience is accessed, e.g.'mweb' 
- * @param {string} inputs.context.deployment_id - The unique identifier for the assistant deployment 
- * @param {string} inputs.context.assistant_type - The type of assistant, e.g., 'nava' 
- * 
- * @returns {boolean} Returns true/false 
+        <applicability_script><![CDATA[/**
+ * Function to process inputs related to ServiceNow change request operations
+ *
+ * @param {Object} inputs - The input parameters object
+ * @param {string} inputs.objective - The purpose or goal of the operation
+ * @param {string} inputs.execution_plan_id - Unique identifier for the execution plan
+ * @param {Object} inputs.context - Context information about the ServiceNow change request
+ * @param {string} inputs.context.url - The URL of the change request in Service Operations Workspace
+ * @param {string} inputs.context.table - The ServiceNow table name (e.g., 'change_request')
+ * @param {string} inputs.context.record_sys_id - The sys ID of the record
+ * @param {string} inputs.context.route - The route type (e.g., 'record')
+ * @param {string} inputs.context.additional_context - Additional contextual information in JSON format
+ * @param {string} inputs.context.experience - The UI experience name (e.g., 'Service Operations Workspace')
+ * @param {string} inputs.context.number - The request number
+ * @param {string} inputs.context.portal - The portal ID
+ * @param {string} inputs.context.device_type - The device type from which the experience is accessed, e.g.'mweb'
+ * @param {string} inputs.context.deployment_id - The unique identifier for the assistant deployment
+ * @param {string} inputs.context.assistant_type - The type of assistant, e.g., 'nava'
+ *
+ * @returns {boolean} Returns true/false
  */
 (function(inputs) {
-    /** const { objective, execution_plan_id, context } = inputs; 
+    /** const { objective, execution_plan_id, context } = inputs;
     return context.table == 'incident' ; */
     return false;
 })(inputs);]]></applicability_script>
@@ -80,24 +80,24 @@
         <extends/>
         <extension_configuration/>
         <external_agent_configuration/>
-        <inputs>[]</inputs>
+        <inputs>{}</inputs>
         <instructions>1. Identify which AI asset (model, prompt, or AI system) the user is asking about.
 2. Query the AICT KG Data Agent knowledge graph for that asset's governance and lifecycle facts: status, last certification date, compliance flags, and related AI system.
-3. Call the Jev Decision Check skill, passing a prompt input built as: TYPE:noul, INSTRUCTIONS:&lt;the user's maintenance question&gt;, STATE:&lt;the retrieved governance facts&gt;.
+3. Call the Jev Decision Check skill, passing a prompt input built as: TYPE:boolean, INSTRUCTIONS:&lt;the user's maintenance question&gt;, STATE:&lt;write out the actual field values from step 2 as plain text, e.g. status=X; last_certification_date=Y; compliance_flags=Z; related_ai_system=W — do not reference the tool call&gt;.
 4. Present Jev's structured answer to the user, including the probability or confidence value it returned, alongside the governance facts used.</instructions>
-        <internal_name>global.x_snc_jev.AI Asset Maintenance Advisor (Jev)</internal_name>
-        <name>AI Asset Maintenance Advisor (Jev)</name>
+        <internal_name>global.x_snc_jev.AI Asset Maintenance Advisor using Jev</internal_name>
+        <name>AI Asset Maintenance Advisor using Jev</name>
         <outputs>""</outputs>
         <parent/>
         <post_processing_message/>
         <processing_message/>
-        <proficiency>- Expertly advises on the governance, lifecycle, and compliance of AI assets (models, prompts, or AI systems), interpreting user queries to provide actionable guidance on maintenance, recertification, or retirement decisions, based on established governance frameworks and compliance requirements.
-- Retrieves comprehensive governance and lifecycle context for any specified AI asset (model, prompt, or AI system) from the AICT KG Data Agent knowledge graph, including status, last certification date, compliance flags, and related AI system, using advanced query parameters to ensure detailed and organized data extraction.
-- Generates calibrated, structured decisions regarding the maintenance, recertification, or retirement of AI assets by invoking the Jev Decision Check Skill, using a prompt that integrates the user's question and the governance facts retrieved, and presents the resulting answer with associated probability or confidence values.
-- Combines knowledge graph lookup and calibrated decision-making to deliver holistic, evidence-based recommendations for AI asset lifecycle actions, ensuring that every decision is supported by current governance context and structured confidence metrics.
-- Presents structured, transparent answers to users, including Jev's decision, associated confidence or probability values, and the governance facts used in the decision-making process, thereby enhancing explainability and traceability in AI asset lifecycle management.</proficiency>
+        <proficiency>- Expert in AI asset governance, lifecycle management, and compliance advisory, capable of interpreting user queries about maintaining, recertifying, or retiring AI assets (models, prompts, or AI systems) and providing actionable guidance based on governance context and calibrated decision support.
+- Proficient in querying the AICT Knowledge Graph to retrieve detailed governance and lifecycle information for AI assets, including status, certification history, compliance flags, and relationships to other AI systems, ensuring that all advice is grounded in up-to-date and comprehensive asset data.
+- Skilled in utilizing the Jev Decision Check Skill to generate calibrated, structured decisions regarding AI asset maintenance, recertification, or retirement, incorporating governance context and presenting results with associated confidence metrics to support transparent and reliable advisory outcomes.
+- Capable of orchestrating multi-step procedures by combining knowledge graph queries and calibrated decision checks, ensuring that user questions about AI asset lifecycle are answered with both factual context and expert decision support, seamlessly integrating tool outputs for maximum clarity and utility.
+- Adept at leveraging advanced knowledge graph query features, including conversation history, grouping by table, and targeted tagging, to support nuanced, multi-turn advisory sessions and deliver highly relevant, organized governance information for AI asset management.</proficiency>
         <record_type>custom</record_type>
-        <required_translations/>
+        <required_translations>[]</required_translations>
         <research>false</research>
         <role>You are an AI governance advisor. When the user asks about maintaining, recertifying, or retiring an AI asset (model, prompt, or AI system), you retrieve relevant lifecycle and compliance context about that asset from the knowledge graph, then call the Jev Decision Check skill to get a calibrated decision, and present Jev's answer to the user along with the supporting context you retrieved.</role>
         <root_agent_id/>
@@ -105,16 +105,16 @@
         <strategy display_value="ReAct">f0bff21f9f13c6108f431597d90a1c74</strategy>
         <sys_class_name>sn_aia_agent</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-09-20 12:36:58</sys_created_on>
+        <sys_created_on>2026-09-20 14:50:27</sys_created_on>
         <sys_domain>global</sys_domain>
-        <sys_id>885c377b3bd7c7108263d1a693e45a79</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>AI Asset Maintenance Advisor (Jev)</sys_name>
+        <sys_id>e80b908c3ba74b10cedd7ea693e45a1a</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>AI Asset Maintenance Advisor using Jev</sys_name>
         <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
         <sys_policy/>
         <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
-        <sys_update_name>sn_aia_agent_885c377b3bd7c7108263d1a693e45a79</sys_update_name>
+        <sys_update_name>sn_aia_agent_e80b908c3ba74b10cedd7ea693e45a1a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-09-20 12:43:17</sys_updated_on>
+        <sys_updated_on>2026-09-20 15:11:38</sys_updated_on>
     </sn_aia_agent>
 </record_update>

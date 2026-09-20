@@ -123,6 +123,7 @@ declare global {
                     {
                         table: 'sn_aia_version'
                         id: '478cffff3bd7c7108263d1a693e45a85'
+                        deleted: true
                         key: {
                             target_id: '885c377b3bd7c7108263d1a693e45a79'
                             version_name: 'Version 1'
@@ -348,6 +349,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sn_aia_agent_tool_m2m'
+                        id: 'ee0c98803be74b10cedd7ea693e45afe'
+                        key: {
+                            agent: 'e80b908c3ba74b10cedd7ea693e45a1a'
+                            tool: 'e20c98803be74b10cedd7ea693e45a48'
+                            name: 'Jev Decision Check Skill'
+                        }
+                    },
+                    {
                         table: 'sys_one_extend_resource_attribute_mapping'
                         id: 'f62dd73f3b93c7108263d1a693e45ae2'
                         key: {
@@ -367,6 +377,15 @@ declare global {
                                     name: 'snc_internal'
                                 }
                             }
+                        }
+                    },
+                    {
+                        table: 'sn_aia_agent_tool_m2m'
+                        id: 'fa0cd8803be74b10cedd7ea693e45a06'
+                        key: {
+                            agent: 'e80b908c3ba74b10cedd7ea693e45a1a'
+                            tool: '3b8c4f4fc3e022100e94313a05013167'
+                            name: 'AICT Knowledge Graph Lookup'
                         }
                     },
                     {
