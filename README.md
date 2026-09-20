@@ -1,4 +1,4 @@
-# jev
+# Otto and Jev via AICT Knowledge Graph
 
 Jev (TypeSafe AI System One) integration for ServiceNow, scope `x_snc_jev`.
 
