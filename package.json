@@ -4,9 +4,11 @@
   "private": true,
   "description": "TypeScript source for the ServiceNow Custom LLM Transformer scripts that bridge Jev (TypeSafe System One) into the Generative AI Controller.",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "typecheck:fluent": "tsc -p tsconfig.fluent.json"
   },
   "devDependencies": {
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "@servicenow/sdk": "^4.12.2"
   }
 }

@@ -8,5 +8,5 @@
     "newLine": "lf",
     "removeComments": false
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/request-transformer.ts", "src/response-transformer.ts"]
 }
