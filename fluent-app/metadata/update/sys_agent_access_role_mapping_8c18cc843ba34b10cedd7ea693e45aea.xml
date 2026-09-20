@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_agent_access_role_mapping">
+    <sys_agent_access_role_mapping action="INSERT_OR_UPDATE">
+        <agent_access_config display_value="885c377b3bd7c7108263d1a693e45a79">3357c4043ba34b10cedd7ea693e45a68</agent_access_config>
+        <role display_value="sn_naa.web_agent_runtime" name="sn_naa.web_agent_runtime">46d56494ff0103106486ffffffffff16</role>
+        <sys_class_name>sys_agent_access_role_mapping</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-09-20 13:27:17</sys_created_on>
+        <sys_id>8c18cc843ba34b10cedd7ea693e45aea</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>885c377b3bd7c7108263d1a693e45a79.sn_naa.web_agent_runtime</sys_name>
+        <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
+        <sys_update_name>sys_agent_access_role_mapping_8c18cc843ba34b10cedd7ea693e45aea</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-09-20 13:27:17</sys_updated_on>
+    </sys_agent_access_role_mapping>
+</record_update>

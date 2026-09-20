@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_agent_access_role_mapping">
+    <sys_agent_access_role_mapping action="INSERT_OR_UPDATE">
+        <agent_access_config display_value="Jev Decision Check">722dd73f3b93c7108263d1a693e45a39</agent_access_config>
+        <role display_value="admin" name="admin">2831a114c611228501d4ea6c309d626d</role>
+        <sys_class_name>sys_agent_access_role_mapping</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-09-20 10:19:52</sys_created_on>
+        <sys_id>3e2dd73f3b93c7108263d1a693e45afb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Jev Decision Check.admin</sys_name>
+        <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
+        <sys_update_name>sys_agent_access_role_mapping_3e2dd73f3b93c7108263d1a693e45afb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-09-20 10:19:52</sys_updated_on>
+    </sys_agent_access_role_mapping>
+</record_update>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_generative_ai_custom_llm_transformer">
+    <sys_generative_ai_custom_llm_transformer action="INSERT_OR_UPDATE">
+        <model display_value="jev-latest">0752fa7b3b5b87108263d1a693e45a5d</model>
+        <request_transformer><![CDATA[(function(inputs) {
+    var promptData = inputs.prompt_data;
+    var prompt = promptData.prompt || '';
+
+    var typeMatch = prompt.match(/TYPE:(.*)/);
+    var instructionsMatch = prompt.match(/INSTRUCTIONS:(.*)/);
+    var stateMatch = prompt.match(/STATE:([\s\S]*)/);
+
+    var questionType = typeMatch ? typeMatch[1].trim() : 'noul';
+    var instructions = instructionsMatch ? instructionsMatch[1].trim() : prompt;
+    var state = stateMatch ? stateMatch[1].trim() : prompt;
+
+    var body = {
+        model: 'jev-latest',
+        state: state,
+        questions: {
+            answer: {
+                type: questionType,
+                instructions: instructions
+            }
+        }
+    };
+
+    var headers = {};
+
+    return {
+        body: body,
+        headers: headers
+    };
+})(inputs);]]></request_transformer>
+        <response_transformer><![CDATA[(function(inputs) {
+    var responseBody = JSON.parse(inputs.response_body);
+    var responseTexts = [];
+
+    var answers = responseBody.answers || {};
+    var keys = Object.keys(answers);
+    for (var i = 0; i < keys.length; i++) {
+        var key = keys[i];
+        responseTexts.push(key + ': ' + JSON.stringify(answers[key]));
+    }
+
+    if (responseTexts.length === 0) {
+        responseTexts.push('(no answer returned by Jev)');
+    }
+
+    return responseTexts;
+})(inputs);]]></response_transformer>
+        <sys_class_name>sys_generative_ai_custom_llm_transformer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-09-20 07:16:51</sys_created_on>
+        <sys_id>d4b2f63f3b5b87108263d1a693e45a14</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
+        <sys_update_name>sys_generative_ai_custom_llm_transformer_d4b2f63f3b5b87108263d1a693e45a14</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-09-20 07:16:51</sys_updated_on>
+    </sys_generative_ai_custom_llm_transformer>
+</record_update>

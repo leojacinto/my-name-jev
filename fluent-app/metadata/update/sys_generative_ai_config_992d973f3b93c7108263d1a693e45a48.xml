@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_generative_ai_config">
+    <sys_generative_ai_config action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <additional_configurations>{}</additional_configurations>
+        <ai_suggested>false</ai_suggested>
+        <definition>192d973f3b93c7108263d1a693e45a31</definition>
+        <definition_table>sys_one_extend_capability_definition</definition_table>
+        <documentation/>
+        <max_tokens>200</max_tokens>
+        <min_word_count>-1</min_word_count>
+        <model>jev-latest</model>
+        <name>Incident Summarization</name>
+        <parent/>
+        <prompt/>
+        <prompt_template_role>user</prompt_template_role>
+        <provider_company/>
+        <request_tokens>50</request_tokens>
+        <show_in_prompt_library>true</show_in_prompt_library>
+        <state>published</state>
+        <structured_output_enabled>false</structured_output_enabled>
+        <structured_output_schema/>
+        <sys_class_name>sys_generative_ai_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-09-20 10:19:46</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>992d973f3b93c7108263d1a693e45a48</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>192d973f3b93c7108263d1a693e45a31</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
+        <sys_update_name>sys_generative_ai_config_992d973f3b93c7108263d1a693e45a48</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-09-20 12:29:42</sys_updated_on>
+        <temperature>0.2</temperature>
+        <thinking_tokens>0</thinking_tokens>
+        <version>1</version>
+    </sys_generative_ai_config>
+</record_update>

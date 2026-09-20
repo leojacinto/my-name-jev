@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_wdf_external_connection_mapping">
+    <sys_wdf_external_connection_mapping action="INSERT_OR_UPDATE">
+        <asset_id>5b0276b73b5b87108263d1a693e45a73</asset_id>
+        <connection_name>Jev (TypeSafe System One)</connection_name>
+        <connection_type>outbound</connection_type>
+        <connector_type>7bf7f2123decf210f87762d639ed247b</connector_type>
+        <external_system/>
+        <sys_class_name>sys_wdf_external_connection_mapping</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-09-20 07:11:41</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>4212feb73b5b87108263d1a693e45a21</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Jev (TypeSafe System One)</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
+        <sys_update_name>sys_wdf_external_connection_mapping_4212feb73b5b87108263d1a693e45a21</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-09-20 07:11:41</sys_updated_on>
+        <table_name>sys_alias</table_name>
+    </sys_wdf_external_connection_mapping>
+</record_update>

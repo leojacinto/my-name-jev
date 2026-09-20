@@ -1,1 +1,4 @@
 node_modules/
+fluent-app/dist/
+fluent-app/target/
+

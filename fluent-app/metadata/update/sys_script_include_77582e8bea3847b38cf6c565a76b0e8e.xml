@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_jev.JevAssetMaintenanceBridgeSNC</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Extracts the user question and calls the Jev Decision Check capability. Backing api for the AI Asset Maintenance Advisor (Jev) OneExtend capability.</description>
+        <mobile_callable>false</mobile_callable>
+        <name>JevAssetMaintenanceBridgeSNC</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var JevAssetMaintenanceBridgeSNC = Class.create();
+JevAssetMaintenanceBridgeSNC.prototype = {
+    initialize: function() {},
+
+    execute: function(input) {
+        var question = this._extractQuestion(input);
+
+        if (!question) {
+            return { answer: "I could not find a question in that message." };
+        }
+
+        try {
+            var promptData = {
+                prompt: "TYPE:noul\nINSTRUCTIONS:" + question + "\nSTATE:" + question
+            };
+
+            var request = {
+                executionRequests: [{
+                    payload: { prompt: promptData.prompt },
+                    capabilityId: "c92d573f3b93c7108263d1a693e45ac2",
+                    meta: { skillConfigId: "e12d973f3b93c7108263d1a693e45a76" }
+                }],
+                mode: "sync"
+            };
+
+            var output = sn_one_extend.OneExtendUtil.execute(request)["capabilities"]["c92d573f3b93c7108263d1a693e45ac2"]["response"];
+            var parsed = JSON.parse(output);
+            var modelOutput = parsed.model_output || parsed;
+
+            return { answer: Array.isArray(modelOutput) ? modelOutput.join("; ") : String(modelOutput) };
+        } catch (e) {
+            return { answer: "I could not get a decision from Jev right now.", debug_error: e.message };
+        }
+    },
+
+    _extractQuestion: function(input) {
+        if (!input) return "";
+        if (typeof input === "string") return input;
+        return input.utterance || input.query || input.text || input.message || input.data || "";
+    },
+
+    type: "JevAssetMaintenanceBridgeSNC"
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-09-20 13:45:00</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>77582e8bea3847b38cf6c565a76b0e8e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>JevAssetMaintenanceBridgeSNC</sys_name>
+        <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
+        <sys_update_name>sys_script_include_77582e8bea3847b38cf6c565a76b0e8e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-09-20 13:45:00</sys_updated_on>
+    </sys_script_include>
+</record_update>

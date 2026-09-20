@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_agent_tool_m2m">
+    <sn_aia_agent_tool_m2m action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <agent display_value="AI Asset Maintenance Advisor (Jev)">885c377b3bd7c7108263d1a693e45a79</agent>
+        <description>Use to get a calibrated decision from Jev once you have the AI asset governance context.</description>
+        <display_mode>inline</display_mode>
+        <display_output>true</display_output>
+        <document_status/>
+        <entity/>
+        <entity_id/>
+        <execution_mode>autopilot</execution_mode>
+        <inputs/>
+        <max_auto_executions>10</max_auto_executions>
+        <name>Jev Decision Check Skill</name>
+        <output_transformation_strategy>none</output_transformation_strategy>
+        <post_message/>
+        <post_processing_script/>
+        <pre_message/>
+        <pre_run>false</pre_run>
+        <requires_text_refined_message>false</requires_text_refined_message>
+        <requires_widget_transformation>true</requires_widget_transformation>
+        <should_display_refined_message>false</should_display_refined_message>
+        <sys_class_name>sn_aia_agent_tool_m2m</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-09-20 12:42:54</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>4eedf3f33b1bc7108263d1a693e45a3d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Jev Decision Check Skill</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
+        <sys_update_name>sn_aia_agent_tool_m2m_4eedf3f33b1bc7108263d1a693e45a3d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-09-20 12:42:54</sys_updated_on>
+        <timeout/>
+        <tool display_value="Jev Decision Check Skill">accd33b33b1bc7108263d1a693e45aad</tool>
+        <tool_attributes>{}</tool_attributes>
+        <transformation_instructions/>
+        <wait_for_widget_interaction>false</wait_for_widget_interaction>
+        <widgets/>
+    </sn_aia_agent_tool_m2m>
+</record_update>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_generative_ai_model_config">
+    <sys_generative_ai_model_config action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <availability_at_instance>true</availability_at_instance>
+        <base_model/>
+        <connection display_value="x_snc_jev.Jev__TypeSafe_System_One_">5b0276b73b5b87108263d1a693e45a73</connection>
+        <deployment_guideline/>
+        <deprecation_date/>
+        <enable_function_calling>false</enable_function_calling>
+        <evaluation_metrics_report/>
+        <external>true</external>
+        <license_details/>
+        <lifecycle_state/>
+        <log_sampling_percentage>100</log_sampling_percentage>
+        <logging_enabled>true</logging_enabled>
+        <max_tokens>500</max_tokens>
+        <model>jev-latest</model>
+        <model_card/>
+        <model_display_name/>
+        <model_size/>
+        <model_source>customer</model_source>
+        <model_type>LLM</model_type>
+        <model_version/>
+        <output_token_size/>
+        <parameters_info/>
+        <preceding_model_config/>
+        <provider display_value="Custom LLM">07ca9d94c3550210b0939bc8a840ddeb</provider>
+        <provider_company/>
+        <release_date/>
+        <request_transformation_script><![CDATA[(function(x_request) {       	/* write code here to transform x_request for this specific model. Example: setting temperature based on model requirements */       	       	return JSON.parse(x_request);       })(x_request);]]></request_transformation_script>
+        <required_infra/>
+        <retired_date/>
+        <source/>
+        <supported_language_codes/>
+        <supported_languages>914493a30f320010e96b0e4fef767e90</supported_languages>
+        <sys_class_name>sys_generative_ai_model_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-09-20 07:14:11</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>0752fa7b3b5b87108263d1a693e45a5d</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>jev-latest</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
+        <sys_update_name>sys_generative_ai_model_config_0752fa7b3b5b87108263d1a693e45a5d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-09-20 10:16:57</sys_updated_on>
+        <thinking_enabled>false</thinking_enabled>
+        <training_procedure/>
+        <usage_mode>none</usage_mode>
+        <vector_dimension>768</vector_dimension>
+    </sys_generative_ai_model_config>
+</record_update>

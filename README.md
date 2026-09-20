@@ -1,28 +1,44 @@
-# jev-servicenow-transformers
+# jev
 
-TypeScript source for the ServiceNow **Generative AI Custom LLM Transformer** scripts that bridge [Jev](https://typesafe.ai) (TypeSafe AI's System One model) into ServiceNow's Generative AI Controller, since Jev returns typed/calibrated-probability answers rather than free text.
-
-Deployed on a ServiceNow dev instance in scope `x_snc_jev` as the "Jev Decision Check" AI Skill Kit skill, provider = Custom LLM Provider.
+Jev (TypeSafe AI System One) integration for ServiceNow, scope `x_snc_jev`.
 
 ## Layout
 
-- `src/request-transformer.ts` — parses the `TYPE:` / `INSTRUCTIONS:` / `STATE:` prompt convention into Jev's `{ state, model, questions }` request body.
-- `src/response-transformer.ts` — flattens Jev's typed `answers` object into the string array the Controller expects.
-- `dist/*.js` — compiled output. This is what actually gets pasted into the `sys_generative_ai_custom_llm_transformer` request/response script fields in ServiceNow, since those fields only execute plain JS.
-- `src/asset-maintenance-agent.ts` — [ServiceNow Fluent](https://www.servicenow.com/docs/bundle/latest/page/build/servicenow-sdk/concept/servicenow-fluent.html) source documenting the AI Agent Studio wiring (agent + tools) applied to `mememachine`. Type-checks against the real `@servicenow/sdk` types but was applied via the Table API directly, not `now-sdk build`/`deploy`.
+- `src/request-transformer.ts` / `src/response-transformer.ts` — Custom LLM Transformer scripts. Parse the `TYPE:` / `INSTRUCTIONS:` / `STATE:` prompt convention into Jev's `{ state, model, questions }` request, flatten the typed answer back into the string array ServiceNow's Generative AI Controller expects.
+- `dist/*.js` — compiled output of the two files above. Paste this into the `sys_generative_ai_custom_llm_transformer` request/response fields in ServiceNow after any change (that field only runs plain JS).
+- `src/evaluate-jev.ts` — calls Jev directly via Vercel AI Gateway (`ai` SDK 7 `experimental_evaluate` + `@ai-sdk/gateway`), bypassing ServiceNow. Needs `AI_GATEWAY_API_KEY` in the environment.
+- `fluent-app/` — the ServiceNow Fluent-managed source of truth for the `x_snc_jev` scoped app on `mememachine`. Built via `now-sdk init --from`, so most of it is pulled instance metadata (`fluent-app/metadata/`), not hand-written Fluent TypeScript — the SDK's TS compile step doesn't run for apps converted this way, so new records there are added as Update Set XML directly under `metadata/update/`.
 
-## Build
+## Build (transformer scripts)
 
 ```
 npm install
-npm run build            # compiles the transformer scripts to dist/*.js
-npm run typecheck:fluent # type-checks the Fluent agent source against @servicenow/sdk
+npm run build
 ```
 
-Paste the contents of `dist/request-transformer.js` and `dist/response-transformer.js` into the corresponding transformer script fields in ServiceNow after any change.
+Paste `dist/request-transformer.js` / `dist/response-transformer.js` into ServiceNow.
 
-## Status
+## Evaluate Jev via Vercel Gateway
 
-- Skill scaffolded, prompt finalized, published, and activated.
-- "AI Asset Maintenance Advisor (Jev)" AI Agent created in AI Agent Studio with two tools: the Jev Decision Check skill, and a Knowledge Graph lookup scoped to the platform Enterprise Graph (the same graph AICT's own "AICT KG Data Agent" tag scopes via a filter set not exposed on this generic tool type).
-- Still on a placeholder API key. Swap in a real Jev key (from `console.typesafe.ai`) in the API Key Credential record before activating live calls.
+```
+AI_GATEWAY_API_KEY=<key> npm run evaluate:jev
+```
+
+## Rebuild / redeploy the ServiceNow app (fluent-app/)
+
+```
+cd fluent-app
+npm install
+SN_SDK_NODE_ENV=SN_SDK_CI_INSTALL SN_SDK_AUTH_TYPE=basic \
+SN_SDK_INSTANCE_URL=<instance url> SN_SDK_USER=<user> SN_SDK_USER_PWD=<password> \
+npx @servicenow/sdk build .
+npx @servicenow/sdk install --source .
+```
+
+Credentials are read from env vars only — nothing is stored in this repo.
+
+## What's on the instance
+
+- AI Skill Kit skill "Jev Decision Check" — published, activated, provider = Custom LLM Provider. Still on a placeholder API key; swap in a real one (from `console.typesafe.ai`) in the API Key Credential record before it can make live calls.
+- AI Agent Studio agent "AI Asset Maintenance Advisor (Jev)" — has an ACL, two tools (the Jev skill, and a Knowledge Graph lookup scoped to the platform Enterprise Graph).
+- OneExtend capability "AI Asset Maintenance Advisor (Jev)" (script-include-backed, `JevAssetMaintenanceBridgeSNC`) so it's discoverable in Assistant Designer / promoted to Employee Slate — calls the Jev skill directly rather than the agent, since agent invocation (`startAiAgentConversation`) is async/conversational and this needs a synchronous answer.

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_agent_tool_m2m">
+    <sn_aia_agent_tool_m2m action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <agent display_value="AI Asset Maintenance Advisor (Jev)">885c377b3bd7c7108263d1a693e45a79</agent>
+        <description>Use to retrieve governance and lifecycle facts about the specific AI asset (model, prompt, or AI system) the user is asking about, before calling Jev.</description>
+        <display_mode>inline</display_mode>
+        <display_output>false</display_output>
+        <document_status/>
+        <entity/>
+        <entity_id/>
+        <execution_mode>autopilot</execution_mode>
+        <inputs>[{"name":"query","description":"Query to the knowledge graph. Direct translation of the user request, e.g. status and lifecycle facts for the named AI asset."},{"name":"knowledge_graph","value":"4df1497e53212210ebb1ddeeff7b1242","description":"Knowledge graph source"},{"name":"show_column_properties","value":"true","description":"Show column properties"},{"name":"group_by_table","value":"true","description":"Group by table"}]</inputs>
+        <max_auto_executions>10</max_auto_executions>
+        <name>AICT Knowledge Graph Lookup</name>
+        <output_transformation_strategy>none</output_transformation_strategy>
+        <post_message/>
+        <post_processing_script/>
+        <pre_message/>
+        <pre_run>false</pre_run>
+        <requires_text_refined_message>false</requires_text_refined_message>
+        <requires_widget_transformation>true</requires_widget_transformation>
+        <should_display_refined_message>false</should_display_refined_message>
+        <sys_class_name>sn_aia_agent_tool_m2m</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-09-20 12:43:11</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>42fdbbf33b1bc7108263d1a693e45a68</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>AICT Knowledge Graph Lookup</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
+        <sys_update_name>sn_aia_agent_tool_m2m_42fdbbf33b1bc7108263d1a693e45a68</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-09-20 12:43:11</sys_updated_on>
+        <timeout/>
+        <tool display_value="AIA Knowledge Graph">3b8c4f4fc3e022100e94313a05013167</tool>
+        <tool_attributes>{}</tool_attributes>
+        <transformation_instructions/>
+        <wait_for_widget_interaction>false</wait_for_widget_interaction>
+        <widgets/>
+    </sn_aia_agent_tool_m2m>
+</record_update>

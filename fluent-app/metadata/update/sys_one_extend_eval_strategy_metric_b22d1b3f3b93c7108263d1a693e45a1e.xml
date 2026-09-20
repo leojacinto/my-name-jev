@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_one_extend_eval_strategy_metric">
+    <sys_one_extend_eval_strategy_metric action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <definition display_value="Correctness Metric (Claude)">d2af76972b2e6e10a32efa996e91bfca</definition>
+        <eval_strategy display_value="Default">752dd73f3b93c7108263d1a693e45a22</eval_strategy>
+        <gen_ai_config display_value="OneExtend Capability Definition: Correctness Metric (Claude)">d2af76972b2e6e10a32efa996e91bfcb</gen_ai_config>
+        <metric_name>Correctness Metric</metric_name>
+        <sys_class_name>sys_one_extend_eval_strategy_metric</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2026-09-20 10:19:52</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b22d1b3f3b93c7108263d1a693e45a1e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Correctness Metric</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
+        <sys_update_name>sys_one_extend_eval_strategy_metric_b22d1b3f3b93c7108263d1a693e45a1e</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2026-09-20 10:19:52</sys_updated_on>
+    </sys_one_extend_eval_strategy_metric>
+</record_update>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_generative_ai_prompt_config">
+    <sys_generative_ai_prompt_config action="INSERT_OR_UPDATE">
+        <ai_config display_value="OneExtend Capability Definition: Jev Decision Check (Custom LLM Provider - custom_api)">992d973f3b93c7108263d1a693e45a48</ai_config>
+        <definition display_value="Jev Decision Check (Custom LLM Provider - custom_api)">192d973f3b93c7108263d1a693e45a31</definition>
+        <filter_properties/>
+        <filter_type>default</filter_type>
+        <is_default>true</is_default>
+        <order>0</order>
+        <sys_class_name>sys_generative_ai_prompt_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-09-20 10:19:46</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>952d973f3b93c7108263d1a693e45a4d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>992d973f3b93c7108263d1a693e45a48</sys_name>
+        <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
+        <sys_update_name>sys_generative_ai_prompt_config_952d973f3b93c7108263d1a693e45a4d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-09-20 10:19:46</sys_updated_on>
+    </sys_generative_ai_prompt_config>
+</record_update>

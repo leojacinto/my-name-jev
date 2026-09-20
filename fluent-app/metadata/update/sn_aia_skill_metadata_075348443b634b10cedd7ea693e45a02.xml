@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_skill_metadata">
+    <sn_aia_skill_metadata action="INSERT_OR_UPDATE">
+        <description>Answers questions about maintaining an AI asset (model, prompt, or AI system) - e.g. whether it needs recertification, review, or retirement - by pulling governance and lifecycle context from the AICT knowledge graph and getting a calibrated decision from Jev.</description>
+        <document_id>885c377b3bd7c7108263d1a693e45a79</document_id>
+        <document_table>sn_aia_agent</document_table>
+        <internal_name>global.x_snc_jev.AI Asset Maintenance Advisor (Jev)</internal_name>
+        <name>AI Asset Maintenance Advisor (Jev)</name>
+        <sys_class_name>sn_aia_skill_metadata</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-09-20 13:06:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>075348443b634b10cedd7ea693e45a02</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>AI Asset Maintenance Advisor (Jev)</sys_name>
+        <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
+        <sys_update_name>sn_aia_skill_metadata_075348443b634b10cedd7ea693e45a02</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-09-20 13:06:44</sys_updated_on>
+    </sn_aia_skill_metadata>
+</record_update>
