@@ -2,39 +2,52 @@
  * Generative AI Custom LLM Transformer — RESPONSE
  * sys_generative_ai_custom_llm_transformer (scope: x_snc_jev)
  *
- * Generative AI Controller only accepts text responses (an array of strings).
- * Jev returns typed answers with calibrated probabilities:
- *   { model, answers: { answer: <value> }, usage: {...} }
- *
- * We flatten the typed answer into a single text line so it satisfies the
- * Controller's text-generation contract, while keeping the raw value visible.
+ * Matches the OpenRouter request in request-transformer.ts. OpenRouter returns
+ * a standard chat-completions body: { choices: [{ message: { content } }] }.
+ * The model is prompted to put a {"answer", "probability"} JSON object in
+ * that content field; this pulls it out and flattens it into the string array
+ * ServiceNow's Generative AI Controller expects.
  */
 
 interface JevResponseTransformerInputs {
   response_body: string;
 }
 
-interface JevResponseBody {
-  answers?: Record<string, unknown>;
-  [key: string]: unknown;
+interface OpenRouterChoice {
+  message?: { content?: string };
+}
+
+interface OpenRouterResponseBody {
+  choices?: OpenRouterChoice[];
+}
+
+interface ParsedAnswer {
+  answer?: unknown;
+  probability?: unknown;
 }
 
 declare var inputs: any;
 
 (function (inputs: JevResponseTransformerInputs): string[] {
-  var responseBody: JevResponseBody = JSON.parse(inputs.response_body);
-  var responseTexts: string[] = [];
+  var responseBody: OpenRouterResponseBody = JSON.parse(inputs.response_body);
 
-  var answers = responseBody.answers || {};
-  var keys = Object.keys(answers);
-  for (var i = 0; i < keys.length; i++) {
-    var key = keys[i];
-    responseTexts.push(key + ': ' + JSON.stringify(answers[key]));
+  var content = '';
+  try {
+    content = responseBody.choices![0].message!.content!;
+  } catch (e) {
+    return ['(no answer returned)'];
   }
 
-  if (responseTexts.length === 0) {
-    responseTexts.push('(no answer returned by Jev)');
+  var parsed: ParsedAnswer | null = null;
+  try {
+    var jsonMatch = content.match(/\{[\s\S]*\}/);
+    parsed = JSON.parse(jsonMatch ? jsonMatch[0] : content);
+  } catch (e) {
+    return [content];
   }
 
-  return responseTexts;
+  return [
+    'answer: ' + JSON.stringify(parsed!.answer),
+    'probability: ' + JSON.stringify(parsed!.probability)
+  ];
 })(inputs);
