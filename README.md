@@ -4,9 +4,8 @@ Jev (TypeSafe AI System One) integration for ServiceNow, scope `x_snc_jev`.
 
 ## Layout
 
-- `src/request-transformer.ts` / `src/response-transformer.ts` — Custom LLM Transformer scripts. Parse the `TYPE:` / `INSTRUCTIONS:` / `STATE:` prompt convention and currently build/parse an OpenRouter chat-completions call (see "What's on the instance" below) — this is not talking to real Jev.
+- `src/request-transformer.ts` / `src/response-transformer.ts` — Custom LLM Transformer scripts. Parse the `TYPE:` / `INSTRUCTIONS:` / `STATE:` prompt convention and build/parse an OpenRouter chat-completions call (see "What's on the instance" below) — this is not talking to real Jev, it's what actually runs behind Otto chat and AI Agent Studio.
 - `dist/*.js` — compiled output of the two files above. Paste this into the `sys_generative_ai_custom_llm_transformer` request/response fields in ServiceNow after any change (that field only runs plain JS).
-- `src/evaluate-jev.ts` — the only path in this repo that talks to real Jev. Calls it directly via Vercel AI Gateway (`ai` SDK 7 `experimental_evaluate` + `@ai-sdk/gateway`), bypassing ServiceNow entirely. Needs `AI_GATEWAY_API_KEY` in the environment.
 - `fluent-app/` — the ServiceNow Fluent-managed source of truth for the `x_snc_jev` scoped app on `mememachine`. Built via `now-sdk init --from`, so most of it is pulled instance metadata (`fluent-app/metadata/`), not hand-written Fluent TypeScript — the SDK's TS compile step doesn't run for apps converted this way, so new records there are added as Update Set XML directly under `metadata/update/`.
 
 ## Build (transformer scripts)
@@ -17,12 +16,6 @@ npm run build
 ```
 
 Paste `dist/request-transformer.js` / `dist/response-transformer.js` into ServiceNow.
-
-## Evaluate Jev via Vercel Gateway
-
-```
-AI_GATEWAY_API_KEY=<key> npm run evaluate:jev
-```
 
 ## Rebuild / redeploy the ServiceNow app (fluent-app/)
 
