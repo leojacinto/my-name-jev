@@ -83,7 +83,7 @@
         <inputs>{}</inputs>
         <instructions>1. Identify which AI asset (model, prompt, or AI system) the user is asking about.
 2. Query the AICT KG Data Agent knowledge graph for that asset's governance and lifecycle facts: status, last certification date, compliance flags, and related AI system.
-3. Call the Jev Decision Check skill, passing a prompt input built as: TYPE:boolean, INSTRUCTIONS:&lt;the user's maintenance question&gt;, STATE:&lt;write out the actual field values from step 2 as plain text, e.g. status=X; last_certification_date=Y; compliance_flags=Z; related_ai_system=W — do not reference the tool call&gt;.
+3. Call the Jev Decision Check skill, passing a prompt input built as: TYPE:noul, INSTRUCTIONS:&lt;the user's maintenance question&gt;, STATE:&lt;write out the actual field values from step 2 as plain text, e.g. status=X; last_certification_date=Y; compliance_flags=Z; related_ai_system=W — do not reference the tool call&gt;.
 4. Present Jev's structured answer to the user, including the probability or confidence value it returned, alongside the governance facts used.</instructions>
         <internal_name>global.x_snc_jev.AI Asset Maintenance Advisor using Jev</internal_name>
         <name>AI Asset Maintenance Advisor using Jev</name>
@@ -108,13 +108,13 @@
         <sys_created_on>2026-09-20 14:50:27</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>e80b908c3ba74b10cedd7ea693e45a1a</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>AI Asset Maintenance Advisor using Jev</sys_name>
         <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
         <sys_policy/>
         <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
         <sys_update_name>sn_aia_agent_e80b908c3ba74b10cedd7ea693e45a1a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-09-20 15:11:38</sys_updated_on>
+        <sys_updated_on>2026-09-21 12:28:51</sys_updated_on>
     </sn_aia_agent>
 </record_update>

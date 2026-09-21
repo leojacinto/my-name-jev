@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_tool">
+    <sn_aia_tool action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>Calls real Jev (TypeSafe System One) directly over HTTP for a calibrated noul decision.</description>
+        <input_schema>[{"name": "instructions", "description": "The maintenance question to ask Jev."}, {"name": "state", "description": "The governance facts to evaluate, as plain text key=value pairs."}]</input_schema>
+        <name>Jev Decision Check (Script)</name>
+        <record_type>custom</record_type>
+        <script><![CDATA["use strict";
+/**
+ * AI Agent Studio Script tool — "Jev Decision Check (Script)"
+ * sn_aia_tool (scope: x_snc_jev), type: script
+ *
+ * Calls real Jev (TypeSafe System One), POST https://api.typesafe.ai/v1/systemone,
+ * directly over HTTP. Pasted as-is into the tool's `script` field (that field runs
+ * plain JS).
+ *
+ * The API key is read from the system property x_snc_jev.typesafe_api_key (plain
+ * string, not password2) because this instance has no KMF crypto module configured,
+ * so password2 fields decrypt to null at runtime.
+ */
+(function (inputs) {
+    var apiKey = gs.getProperty('x_snc_jev.typesafe_api_key', '');
+    var requestBody = {
+        state: inputs.state,
+        model: 'jev-latest',
+        questions: {
+            answer: {
+                type: 'noul',
+                instructions: inputs.instructions
+            }
+        }
+    };
+    var request = new sn_ws.RESTMessageV2();
+    request.setHttpMethod('POST');
+    request.setEndpoint('https://api.typesafe.ai/v1/systemone');
+    request.setRequestHeader('Authorization', 'Bearer ' + apiKey);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.setRequestBody(JSON.stringify(requestBody));
+    var response = request.execute();
+    var body = response.getBody();
+    try {
+        var parsed = JSON.parse(body);
+        var noul = parsed.answers.answer.noul;
+        return {
+            answer: (noul >= 0.5) ? 'true' : 'false',
+            probability: String(noul),
+            status: 'success'
+        };
+    }
+    catch (e) {
+        return {
+            answer: '',
+            probability: '',
+            status: 'error',
+            error: String(e) + ' | body: ' + body
+        };
+    }
+})(inputs);
+]]></script>
+        <sys_class_name>sn_aia_tool</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-09-21 13:10:04</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>a5bd89183b6f0f10cedd7ea693e45acd</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Jev Decision Check (Script)</sys_name>
+        <sys_package display_value="Jev" source="x_snc_jev">572c6e3b3b9787108263d1a693e45a07</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Jev">572c6e3b3b9787108263d1a693e45a07</sys_scope>
+        <sys_update_name>sn_aia_tool_a5bd89183b6f0f10cedd7ea693e45acd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-09-21 13:20:22</sys_updated_on>
+        <target_document/>
+        <target_document_table/>
+        <type>script</type>
+    </sn_aia_tool>
+</record_update>

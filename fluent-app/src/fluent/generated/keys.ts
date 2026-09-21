@@ -9,6 +9,16 @@ declare global {
                         table: 'sys_module'
                         id: '9fc2d0990c1f4eb78eeb6ca79bcf939e'
                     }
+                    jev_decision_check_action: {
+                        table: 'sys_hub_action_type_definition'
+                        id: 'e67c6ea48b4246ed80f0e277507321d5'
+                        deleted: true
+                    }
+                    jev_decision_check_script_step: {
+                        table: 'sys_hub_step_instance'
+                        id: 'e412b7247e3e4ccd9d7062c622069f8b'
+                        deleted: true
+                    }
                     package_json: {
                         table: 'sys_module'
                         id: '64432e5b07704c528aa65dd86ba315bb'
@@ -40,6 +50,15 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_hub_action_output'
+                        id: '0445761e1f8e4bdca10700d139a3be55'
+                        deleted: true
+                        key: {
+                            model: 'e67c6ea48b4246ed80f0e277507321d5'
+                            element: '__action_status__'
+                        }
+                    },
+                    {
                         table: 'sys_gen_ai_feature_mapping'
                         id: '152d973f3b93c7108263d1a693e45a00'
                         key: {
@@ -56,11 +75,29 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_hub_step_ext_output'
+                        id: '1806cd6a7bd24bdea488cdf9d2acbcbf'
+                        deleted: true
+                        key: {
+                            model: 'e412b7247e3e4ccd9d7062c622069f8b'
+                            element: 'rawResponse'
+                        }
+                    },
+                    {
                         table: 'sys_one_extend_capability_definition'
                         id: '192d973f3b93c7108263d1a693e45a31'
                         key: {
                             capability: 'c92d573f3b93c7108263d1a693e45ac2'
                             api: 'af9702d0c3110210b0939bc8a840dd2c'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: '224155a03d66423aaee65838e7a44e64'
+                        deleted: true
+                        key: {
+                            document_key: 'e412b7247e3e4ccd9d7062c622069f8b'
+                            variable: '74315b04b3201300176b051a16a8dc2b'
                         }
                     },
                     {
@@ -75,6 +112,15 @@ declare global {
                         id: '3357c4043ba34b10cedd7ea693e45a68'
                         key: {
                             agent: '885c377b3bd7c7108263d1a693e45a79'
+                        }
+                    },
+                    {
+                        table: 'sys_hub_action_output'
+                        id: '37154ec1f3ac4f08aa8cf7e06190bd0a'
+                        deleted: true
+                        key: {
+                            model: 'e67c6ea48b4246ed80f0e277507321d5'
+                            element: 'probability'
                         }
                     },
                     {
@@ -130,12 +176,67 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_hub_step_ext_output'
+                        id: '483d6962d4784b9fbabf3b5a7b1c3961'
+                        deleted: true
+                        key: {
+                            model: 'e412b7247e3e4ccd9d7062c622069f8b'
+                            element: 'probability'
+                        }
+                    },
+                    {
+                        table: 'sys_element_mapping'
+                        id: '49209ac1fc6d4c92a68383e772044c24'
+                        deleted: true
+                        key: {
+                            id: 'e67c6ea48b4246ed80f0e277507321d5'
+                            table: 'var__m_sys_hub_action_output_e67c6ea48b4246ed80f0e277507321d5'
+                            field: 'answer'
+                        }
+                    },
+                    {
+                        table: 'sys_hub_action_input'
+                        id: '4cabefdd877f45b9a1aa5b6f0245ee25'
+                        deleted: true
+                        key: {
+                            model: 'e67c6ea48b4246ed80f0e277507321d5'
+                            element: 'instructions'
+                        }
+                    },
+                    {
                         table: 'sn_aia_agent_tool_m2m'
                         id: '4eedf3f33b1bc7108263d1a693e45a3d'
                         key: {
                             agent: '885c377b3bd7c7108263d1a693e45a79'
                             tool: 'accd33b33b1bc7108263d1a693e45aad'
                             name: 'Jev Decision Check Skill'
+                        }
+                    },
+                    {
+                        table: 'sys_hub_step_ext_input'
+                        id: '5359eba25fa440d4b412e8cc63ee6ef4'
+                        deleted: true
+                        key: {
+                            model: 'e412b7247e3e4ccd9d7062c622069f8b'
+                            element: 'state'
+                        }
+                    },
+                    {
+                        table: 'sys_hub_action_output'
+                        id: '6459fc51d1e84d4e9cc0d0eaa32b56a1'
+                        deleted: true
+                        key: {
+                            model: 'e67c6ea48b4246ed80f0e277507321d5'
+                            element: 'answer'
+                        }
+                    },
+                    {
+                        table: 'sys_variable_value'
+                        id: '663a5c6dae784954be0203143b975897'
+                        deleted: true
+                        key: {
+                            document_key: 'e412b7247e3e4ccd9d7062c622069f8b'
+                            variable: '71aa7f6647032200b4fad7527c9a719b'
                         }
                     },
                     {
@@ -160,6 +261,16 @@ declare global {
                             parent_capability: 'c92d573f3b93c7108263d1a693e45ac2'
                             resource_capability: 'a28f0e067f0202105bc49fbefc8665ec'
                             resource_name: 'Correctness Metric'
+                        }
+                    },
+                    {
+                        table: 'sys_element_mapping'
+                        id: '77385b1526b94d80a6d95495e71a735a'
+                        deleted: true
+                        key: {
+                            id: 'e412b7247e3e4ccd9d7062c622069f8b'
+                            table: 'var__m_sys_hub_step_ext_input_e412b7247e3e4ccd9d7062c622069f8b'
+                            field: 'state'
                         }
                     },
                     {
@@ -212,6 +323,16 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: '84a1acddc2ce48acb247767561cfe9db'
+                        deleted: true
+                        key: {
+                            name: 'var__m_sys_hub_action_output_e67c6ea48b4246ed80f0e277507321d5'
+                            element: 'probability'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_agent_access_role_mapping'
                         id: '8c18cc843ba34b10cedd7ea693e45aea'
                         key: {
@@ -240,6 +361,45 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_element_mapping'
+                        id: '976e76967a6d444f8537ca3f474ce4c3'
+                        deleted: true
+                        key: {
+                            id: 'e412b7247e3e4ccd9d7062c622069f8b'
+                            table: 'var__m_sys_hub_step_ext_input_e412b7247e3e4ccd9d7062c622069f8b'
+                            field: 'instructions'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '9c32310efe3e4680b849aa1acfed9436'
+                        deleted: true
+                        key: {
+                            name: 'var__m_sys_hub_action_output_e67c6ea48b4246ed80f0e277507321d5'
+                            element: 'answer'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: '9e4f98aebf4247f68a7cb43a4a04bcbd'
+                        deleted: true
+                        key: {
+                            name: 'var__m_sys_hub_action_output_e67c6ea48b4246ed80f0e277507321d5'
+                            element: '__dont_treat_as_error__'
+                            language: 'en'
+                        }
+                    },
+                    {
+                        table: 'sys_hub_step_ext_input'
+                        id: '9f49317b4e7e420e95a8baffb4628ddb'
+                        deleted: true
+                        key: {
+                            model: 'e412b7247e3e4ccd9d7062c622069f8b'
+                            element: 'instructions'
+                        }
+                    },
+                    {
                         table: 'sn_nowassist_skill_config_status'
                         id: 'a12d973f3b93c7108263d1a693e45a7a'
                         key: {
@@ -255,6 +415,16 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'a546e7e2dabf4095b4770a2c37620a17'
+                        deleted: true
+                        key: {
+                            name: 'var__m_sys_hub_action_input_e67c6ea48b4246ed80f0e277507321d5'
+                            element: 'instructions'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sys_user_role'
                         id: 'a72c6e3b3b9787108263d1a693e45a8a'
                         key: {
@@ -266,6 +436,16 @@ declare global {
                         id: 'accd33b33b1bc7108263d1a693e45aad'
                         key: {
                             name: 'Jev Decision Check Skill'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'b3d719a8c7cf46b180a22e69b21a36b0'
+                        deleted: true
+                        key: {
+                            name: 'var__m_sys_hub_action_input_e67c6ea48b4246ed80f0e277507321d5'
+                            element: 'state'
+                            language: 'en'
                         }
                     },
                     {
@@ -307,10 +487,39 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_hub_step_ext_output'
+                        id: 'bba4679ddc634564953ddeec8d052c7d'
+                        deleted: true
+                        key: {
+                            model: 'e412b7247e3e4ccd9d7062c622069f8b'
+                            element: 'answer'
+                        }
+                    },
+                    {
+                        table: 'sys_element_mapping'
+                        id: 'bccbd34a51064cfcb8e6b2e5ca6ae108'
+                        deleted: true
+                        key: {
+                            id: 'e67c6ea48b4246ed80f0e277507321d5'
+                            table: 'var__m_sys_hub_action_output_e67c6ea48b4246ed80f0e277507321d5'
+                            field: 'rawResponse'
+                        }
+                    },
+                    {
                         table: 'sn_aia_agent_config'
                         id: 'd38cffff3bd7c7108263d1a693e45ab1'
                         key: {
                             agent: '885c377b3bd7c7108263d1a693e45a79'
+                        }
+                    },
+                    {
+                        table: 'sys_documentation'
+                        id: 'd3b66b6eac994d93a41b25d5fd386f5f'
+                        deleted: true
+                        key: {
+                            name: 'var__m_sys_hub_action_output_e67c6ea48b4246ed80f0e277507321d5'
+                            element: '__action_status__'
+                            language: 'en'
                         }
                     },
                     {
@@ -319,6 +528,15 @@ declare global {
                         key: {
                             definition: '192d973f3b93c7108263d1a693e45a31'
                             capability: 'c92d573f3b93c7108263d1a693e45ac2'
+                        }
+                    },
+                    {
+                        table: 'sys_hub_action_input'
+                        id: 'dd388a2630904979b114aa005ce72b41'
+                        deleted: true
+                        key: {
+                            model: 'e67c6ea48b4246ed80f0e277507321d5'
+                            element: 'state'
                         }
                     },
                     {
@@ -333,6 +551,25 @@ declare global {
                         id: 'e12d973f3b93c7108263d1a693e45a76'
                         key: {
                             skill_id: 'c92d573f3b93c7108263d1a693e45ac2'
+                        }
+                    },
+                    {
+                        table: 'sys_element_mapping'
+                        id: 'e382ccf74df34a52925aa90471f0ade5'
+                        deleted: true
+                        key: {
+                            id: 'e67c6ea48b4246ed80f0e277507321d5'
+                            table: 'var__m_sys_hub_action_output_e67c6ea48b4246ed80f0e277507321d5'
+                            field: 'probability'
+                        }
+                    },
+                    {
+                        table: 'sys_hub_action_output'
+                        id: 'e4ef677771254ab7968553e05e0b6bd9'
+                        deleted: true
+                        key: {
+                            model: 'e67c6ea48b4246ed80f0e277507321d5'
+                            element: '__dont_treat_as_error__'
                         }
                     },
                     {
@@ -380,12 +617,31 @@ declare global {
                         }
                     },
                     {
+                        table: 'sys_documentation'
+                        id: 'f88bd51f367649b193a26710752f0232'
+                        deleted: true
+                        key: {
+                            name: 'var__m_sys_hub_action_output_e67c6ea48b4246ed80f0e277507321d5'
+                            element: 'rawResponse'
+                            language: 'en'
+                        }
+                    },
+                    {
                         table: 'sn_aia_agent_tool_m2m'
                         id: 'fa0cd8803be74b10cedd7ea693e45a06'
                         key: {
                             agent: 'e80b908c3ba74b10cedd7ea693e45a1a'
                             tool: '3b8c4f4fc3e022100e94313a05013167'
                             name: 'AICT Knowledge Graph Lookup'
+                        }
+                    },
+                    {
+                        table: 'sys_hub_action_output'
+                        id: 'fb73508c10b44a948dccae95a8893268'
+                        deleted: true
+                        key: {
+                            model: 'e67c6ea48b4246ed80f0e277507321d5'
+                            element: 'rawResponse'
                         }
                     },
                     {
